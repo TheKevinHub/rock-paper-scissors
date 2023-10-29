@@ -1,0 +1,133 @@
+* {
+    box-sizing: border-box;
+}
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+}
+img:hover {
+    filter: brightness(80%);
+    cursor: pointer;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+main {
+    flex-grow: 1;
+    background-color: rgb(224, 148, 5);
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("./fonts/Roboto/Roboto-Regular.ttf"), format("truetype");
+}
+@font-face {
+    font-family: "Games";
+    src: url("./fonts/Games/Games.ttf"), format("trutype");
+}
+@font-face {
+    font-family: "Pixelated";
+    src: url("./fonts/PixelatedPusab.ttf"), format("trutype");
+}
+
+.gameIntro {
+    font-family: "Games";
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(21, 21, 51);
+    letter-spacing: 0.1rem;
+    padding: 30px;
+}
+.gameName {
+    font-size: 30px;
+    font-style: italic;
+    color: orange;
+}
+.gameInstructions {
+    font-family: "Roboto";
+    padding-top: 20px;
+    font-size: 18px;
+    color: orange;
+}
+
+
+.btnsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+.btnRock,
+.btnPaper,
+.btnScissors {
+    border: 0;
+    width: 100px;
+    height: auto;
+    padding: 0;
+    background-color: transparent;
+}
+.btnRock {
+    transform: rotate(45deg);
+}
+.btnPaper {
+    padding-top: 300px;
+}
+.btnScissors {
+    transform: rotate(-45deg);
+}
+
+
+.resultsContainer {
+    font-family: "Pixelated";
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+
+.endContainer {
+    font-family: "Pixelated";
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+/* .gameResults {
+} */
+.btnPlayAgain {
+    font-family: "Pixelated";
+    font-size: 24px;
+    margin: 50px;
+    padding: 10px 40px;
+    background-color: lightskyblue;
+}
+.btnPlayAgain:hover {
+    background-color: lightslategray;
+    cursor: pointer;
+}
+
+footer {
+    background-color: rgb(21, 21, 51);
+    color: white;
+    padding: 20px 0px;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: lighter;
+}
+.footerDisclaimer {
+    font-size: 12px;
+    padding-top: 0px;
+    letter-spacing: 0.05rem;
+    color: gray;
+}

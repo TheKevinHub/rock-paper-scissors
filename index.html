@@ -4,138 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h2>Welcome to Rock Paper Scissors! After 5 rounds, the one with the highest points wins.</h2>
-    <div class="btnsContainer">
-        <button class="btnRock">Rock</button>
-        <button class="btnPaper">Paper</button>
-        <button class="btnScissors">Scissors</button>
-    </div>
+    <header>
+        <div class="gameIntro">
+            <div class="gameName">Rock Paper Scissors!</div>
+            <div class="gameInstructions">After 5 rounds, the one with the highest points wins!</div>
+        </div>
+    </header>
 
-    <div class="results"></div>
+    <main>
+        <div class="btnsContainer">
+            <button class="btnRock"><img src="assets/rock.png" alt="Rock"></button>
+            <button class="btnPaper"><img src="assets/paper.png" alt="Paper"></button>
+            <button class="btnScissors"><img src="assets/scissors.png" alt="Scissors"></button>
+        </div>
 
-    <div class="roundContainer">
-        <div class="round"></div>
-        <div class="player"></div>
-        <div class="computer"></div>
-    </div>
+        <div class="resultsContainer">
+            <div class="results"></div>
 
-    <div class="endContainer">
-        <div class="gameResults"></div>
-        <!-- <button class="btnPlayAgain"></button> -->
-    </div>
+            <div class="roundContainer">
+                <div class="round"></div>
+                <div class="player"></div>
+                <div class="computer"></div>
+            </div>
+        </div>
 
-    <script>
-        let wins = 0;
-        let losses = 0;
-        let round = 0;
+        <div class="endContainer">
+            <div class="gameResults"></div>
+            <button class="btnPlayAgain" onclick="window.location.reload()">Play Again?</button>
+        </div>
+    </main>
 
-        let btnRock = document.querySelector(".btnRock");
-        let btnPaper = document.querySelector(".btnPaper");
-        let btnScissors = document.querySelector(".btnScissors");
-        let btnPlayAgain = document.querySelector(".btnPlayAgain");
-        let roundClass = document.querySelector(".round");
-        let player = document.querySelector(".player");
-        let computer = document.querySelector(".computer");
-        let results = document.querySelector(".results");
-        let gameResults = document.querySelector(".gameResults");
-        let btnsContainer = document.querySelector(".btnsContainer");
-        let roundContainer = document.querySelector(".roundContainer");
-
-        function getComputerChoice() {
-            let compChoice = Math.ceil(Math.random() * 3);
-            return compChoice == 1 ? compChoice = "Rock"
-            : compChoice == 2 ? compChoice = "Paper"
-            : compChoice = "Scissors";
-        }
-
-        function getPlayerChoice() {
-            playerChoice = prompt("Rock, Paper, Scissors?");
-            playerChoice = playerChoice.toLowerCase();
-            playerChoice = playerChoice[0].toUpperCase() + playerChoice.slice(1);
-            
-            while (playerChoice !== "Rock" && playerChoice !== "Paper" && playerChoice !== "Scissors")
-            {
-                alert("Sorry, that's not an option. Try again.");
-                getPlayerChoice();
-            }
-
-            return playerChoice;
-        }
-
-        function playRound(playerSelection, computerSelection) {
-            if (playerSelection == computerSelection) {
-                results.textContent = "Tie! Round is reset.";
-            }
-            else if (playerSelection == "Rock" && computerSelection == "Scissors") {
-                wins += 1;
-                round += 1;
-                results.textContent = "Player wins this round! Rock beats Paper.";
-            }
-            else if (playerSelection == "Paper" && computerSelection == "Rock") {
-                wins += 1;
-                round += 1;
-                results.textContent = "Player wins this round! Paper beats Rock.";
-            }
-            else if (playerSelection == "Scissors" && computerSelection == "Paper") {
-                wins += 1;
-                round += 1;
-                results.textContent = "Player wins this round! Scissors beats Paper.";
-            }
-            else {
-                losses += 1;
-                round += 1;
-                results.textContent = `Computer wins this round... ${computerSelection} beats ${playerSelection}.`;
-            }
-            roundClass.textContent = `Current Round: ${round}`;
-            player.textContent = `Player Score: ${wins}`;
-            computer.textContent = `Computer Score: ${losses}`;
-
-            if (round === 5)
-            {
-                roundContainer.remove();
-                results.remove();
-                btnsContainer.remove();
-                if (wins > losses) {
-                    gameResults.textContent = `Player wins the game with a score of ${wins}!`;
-                }
-                else {
-                    gameResults.textContent = `Computer wins the game with a score of ${losses}...`;
-                }
-
-                // btnPlayAgain.textContent = "Play Again?";
-                // btnPlayAgain.addEventListener("click", function(e){
-                //     wins = 0;
-                //     losses = 0;
-                //     round = 0;
-                //     results.style("display: none");
-                // })
-            }
-        }
-
-        // function game() {
-        //     wins = 0;
-        //     losses = 0;
-        //     round = 0;
-
-        //     while (round < 5) {
-        //         round += 1;
-        //         playRound(getPlayerChoice(), getComputerChoice());
-        //     }
-        //     if (wins > losses) {
-        //         alert("Player wins the game! " + wins + " to " + losses);
-        //     }
-        //     else {
-        //         alert("Computer wins the game... " + losses + " to " + wins);
-        //     }
-        // }
-
-        // game();
-        btnRock.addEventListener("click", function(e){playRound("Rock", getComputerChoice())});
-        btnPaper.addEventListener("click", function(e){playRound("Paper", getComputerChoice())});
-        btnScissors.addEventListener("click", function(e){playRound("Scissors", getComputerChoice())});
-    </script>
-
+    <footer>
+        <div>Copyright © 2023 TheKevinHub</div>
+        <div class="footerDisclaimer">(Images taken from Nintendo's Paper Mario Color Splash)</div>
+    </footer>
 </body>
 </html>
